@@ -65,7 +65,7 @@ $(document).ready(function () {
             correctAnswer: 'b',
         },
         {
-            question: " Which typically-R&B artist released a country song in 2016?",
+            question: " Which typically-R&B artist released the country song 'Daddy Lessons' in 2016?",
             answers: {
                 a: ' Beyonce',
                 b: ' Jorja Smith',
