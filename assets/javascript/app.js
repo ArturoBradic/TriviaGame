@@ -42,7 +42,7 @@ $(document).ready(function () {
                 c: ' Kali Uchis',
                 d: ' A$AP ROCKY',
             },
-            correctAnswer: 'a',
+            correctAnswer: 'c',
         },
         {
             question: " Who released 'Ctrl' in 2017 as their debut studio album?",
@@ -121,7 +121,7 @@ $(document).ready(function () {
     var currentQuestion = 0;
     var rightAnswers = 0;
     var wrongAnswers = 0;
-    var number = 11;
+    var number = 16;
     var intervalId;
 
     var questionContainer = document.getElementById('question');
@@ -154,7 +154,7 @@ $(document).ready(function () {
 
     function stop() {
         clearInterval(intervalId);
-        number = 11;
+        number = 16;
     }
 
     function clearAnswers() {
