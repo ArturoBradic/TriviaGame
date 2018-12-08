@@ -1,0 +1,24 @@
+.jumbotron {
+    text-align: center;
+    background-image: url("../images/ocean.png");
+    position: relative;
+    top: 80px;
+}
+
+body {
+    background-image: url("../images/background.gif");
+   background-size: 100% 160%;
+}
+
+#start-game {
+    background-color: red;
+}
+
+h1, h2, .btn {
+    font-family: 'VT323';
+    
+}
+
+.text-center {
+    color: white;
+}
