@@ -25,7 +25,7 @@ $(document).ready(function () {
             correctAnswer: 'c',
         },
         {
-            question: "Which of the following artists is not part of the LGBTQ community?",
+            question: "Which of the following artists is NOT part of the LGBTQ community?",
             answers: {
                 a: ' Syd',
                 b: ' Frank Ocean',
