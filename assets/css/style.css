@@ -14,11 +14,16 @@ body {
     background-color: red;
 }
 
-h1, h2, .btn {
+h3, h1, h2, .btn {
     font-family: 'VT323';
     
 }
 
 .text-center {
     color: white;
+}
+
+#restart {
+    display: none;
+    background-color: red;
 }

@@ -25,14 +25,14 @@ $(document).ready(function () {
             correctAnswer: 'c',
         },
         {
-            question: "Will Smith's daughter, _________, released her first song at the age of 10",
+            question: "Which of the following artists is not part of the LGBTQ community?",
             answers: {
-                a: ' Willow Smith',
-                b: ' Tillie Smith',
-                c: ' Jada Smith',
-                d: ' Anna Nicole Smith',
+                a: ' Syd',
+                b: ' Frank Ocean',
+                c: ' Janelle Monáe',
+                d: ' Mary J. Blige',
             },
-            correctAnswer: 'a',
+            correctAnswer: 'd',
         },
         {
             question: " In Tyler, The Creator's song 'See You Again,' who sings the chorus?",
@@ -114,6 +114,7 @@ $(document).ready(function () {
             },
             correctAnswer: 'a',
         }]
+    
 
 
 
@@ -127,6 +128,8 @@ $(document).ready(function () {
     var questionContainer = document.getElementById('question');
     var answersContainer = document.getElementById('answers');
 
+    var wins = 0;
+    var losses = 0;
 
     //----------------------------------------Functions----------------------------------------
 
@@ -161,8 +164,18 @@ $(document).ready(function () {
         $(`#answers`).html(``);
     }
 
+
     function newQuestion(index) {
         timer();
+        if (currentQuestion > triviaBank.length - 1) {
+            console.log("finish");
+            $("#wins").text("You got " + wins + " questions right! :D ");
+            $("#losses").text("You got " + losses + " questions wrong D:");
+            $("#question").hide();
+            $("#time-remaining").hide();
+            $("#restart").show();
+            stop();
+        }
         $(`#question`).text(triviaBank[currentQuestion].question);
         $(`#answers`).append(`<input type="radio" name="choices" value="a" id="a">${triviaBank[currentQuestion].answers.a}<br>`);
         $(`#answers`).append(`<input type="radio" name="choices" value="b" id="b">${triviaBank[currentQuestion].answers.b}<br>`);
@@ -172,16 +185,30 @@ $(document).ready(function () {
 
         let rightAnswer = triviaBank[currentQuestion].correctAnswer;
         console.log(rightAnswer);
+
+
         $("input[type=radio]").click(function () {
             let userGuess = $(`input[name=choices]:checked`).val();
             console.log(userGuess);
             if (userGuess === rightAnswer) {
                 alert(`Correct!`);
+                stop();
+                wins = wins + 1;
+                console.log("wins = " + wins);
+                $("#answers").empty();
+                newQuestion(currentQuestion++);
 
 
-            } else alert('Sorry, you are mistaken!')
 
-            currentQuestion++;
+            } else {
+                alert('Sorry, you are mistaken!');
+                stop();
+                losses = losses + 1;
+                console.log("losses = " + losses);
+                $("#answers").empty();
+                newQuestion(currentQuestion++);
+
+            };
 
 
         })
@@ -189,5 +216,9 @@ $(document).ready(function () {
 
     };
 
-})
+    $(document).on("click", "#restart", function () {
+        location.reload();
+    });
+
+});
 
